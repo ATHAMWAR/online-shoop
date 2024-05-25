@@ -134,3 +134,46 @@ header .shopping span{
 .listCard .count{
     margin: 0 10px;
 }
+.rtxul{
+    display: flex;
+    grid-gap: 10px;
+    list-style: none;
+    justify-content: end;
+    color: #453E3B;
+    
+}
+li{
+ margin-right: 89px;
+ color: #119f37;
+ font-size: 25px;
+ cursor: pointer;
+ text-decoration: none;
+ font-weight: 500;
+}
+li:hover{
+    color: #9d8fa3;
+}
+a{
+    color: #119f37;
+    text-decoration: none;
+}
+a:hover{
+    color: #9d8fa3;
+}
+.lii{
+    color: rgb(223, 164, 2);
+    font-weight: 600;
+}
+.serachbar{
+   display: block;
+}
+input{
+    width: 26%;
+    border-radius: 10px;
+    padding: 11px;
+    text-decoration: none;
+    border: 1px solid rgb(99, 95, 95);
+    outline: none;
+}
+
+

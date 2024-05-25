@@ -33,6 +33,12 @@ let products = [
         price: 15000
     },
     {
+        id: 3,
+        name: 'Coca cola',
+        image: '9.PNG',
+        price: 15000
+    },
+    {
         id: 4,
         name: 'Lays,chips',
         image: '10.png',
@@ -44,19 +50,14 @@ let products = [
         image: '11.PNG',
         price: 15000
     },
-    {
-        id: 6,
-        name: 'Pizza',
-        image: '6.PNG',
-        price: 120000
-    },
+    
 ];
 let listCards  = [];
 function initApp(){
     products.forEach((value, key) =>{
         let newDiv = document.createElement('div');
         newDiv.classList.add('item');
-        newDiv.innerHTML = `
+        newDiv.innerHTML =`
             <img src="image/${value.image}">
             <div class="title">${value.name}</div>
             <div class="price">${value.price.toLocaleString()}</div>
@@ -83,7 +84,6 @@ function reloadCard(){
             let newDiv = document.createElement('li');
             newDiv.innerHTML = `
                 <div><img src="image/${value.image}"/></div>
-                <div>${value.name}</div>
                 <div>${value.price.toLocaleString()}</div>
                 <div>
                     <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
@@ -105,3 +105,46 @@ function changeQuantity(key, quantity){
     }
     reloadCard();
 }
+
+const categories = [...new Set(product.map((item) => { return item }))]
+
+document.getElementById('searchBar').addEventListener('keyup', (e) => {
+    const searchData = e.target.value.toLowerCase();
+    const filteredData = categories.filter((item) => {
+        return (
+            item.title.toLowerCase().includes(searchData)
+        )
+    })
+    displayItem(filteredData)
+});
+
+const displayItem = (items) => {
+    document.getElementById('root').innerHTML = items.map((item) => {
+        var { image, title, price } = item;
+        return (
+            `<div class='box'>
+                <div class='img-box'>
+                    <img class='images' src=${image}></img>
+                </div> 
+                <div class='bottom'>
+                    <p>${title}</p>
+                    <h2>$ ${price}.00</h2>
+                <button>Add to cart</button>
+                </div>
+            </div>`
+        )
+    }).join('')
+};
+displayItem(categories);
+
+
+
+
+
+
+
+
+
+
+
+
